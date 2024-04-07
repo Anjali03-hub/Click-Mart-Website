@@ -34,16 +34,16 @@
 
 @media (max-width: 768px) {
   .btnn {
-    font-size: 12px; /* Adjust font size for medium-sized devices */
-    padding: 11px 22px; /* Adjust padding for medium-sized devices */
+    font-size: 12px; 
+    padding: 11px 22px; 
   }
 }
 
 
 @media (max-width: 576px) {
   .btnn {
-    font-size: 6px; /* Adjust font size for small screens */
-    padding: 8px 16px; /* Adjust padding for small screens */
+    font-size: 6px; 
+    padding: 8px 16px; 
   }
 }
 
@@ -65,17 +65,17 @@ font-family: cursive;
 
 @media (max-width: 768px) {
   .text {
-    font-size: 36px; /* Decrease font size for smaller screens */
-    margin-top: 10%; /* Adjust top margin for smaller screens */
-    margin-left: 2%; /* Adjust left margin for smaller screens */
+    font-size: 36px; 
+    margin-top: 10%; 
+    margin-left: 2%; 
   }
 }
 
 @media (max-width: 576px) {
   .text {
-    font-size: 30px; /* Further decrease font size for even smaller screens */
-    margin-top: 8%; /* Further adjust top margin for smaller screens */
-    margin-left: 1%; /* Further adjust left margin for smaller screens */
+    font-size: 30px; 
+    margin-top: 8%; 
+    margin-left: 1%; 
   }
 }
 
@@ -316,9 +316,7 @@ div.social {
   border-bottom-left-radius: 20px;
 
 }
-/* .buttons{
-  text-align: center;
-} */
+
 
 
 

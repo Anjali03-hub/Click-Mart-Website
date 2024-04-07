@@ -1,9 +1,14 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 
 const SearchProducts = () => {
     const {searchTerm} = useParams();
+    const navigate=useNavigate();
+
 
     
     const [data, setData] = useState([])
@@ -20,6 +25,13 @@ const SearchProducts = () => {
   
       fetchData();
     }, [searchTerm])
+
+
+    const OrderDone=()=>{
+      alert("Your order is placed successfully!")
+      navigate('/')
+    }
+
 
   return (
     <>
@@ -43,7 +55,48 @@ const SearchProducts = () => {
         <p>Rating:{i.rating}</p>
         </div>
         <div class='col'>
-        <a href="#" class="btn btn-outline-danger">Order Now</a>
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Order Now
+</button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <Form>
+      <Form.Group className="mb-3" controlId="formBasicAddress" >
+        <Form.Label>Enter Address</Form.Label>
+        <Form.Control type="text" placeholder="Enter Address"   />
+      </Form.Group>
+     
+
+      <Form.Group className="mb-3" controlId="formBasicName">
+        <Form.Label>Product Name</Form.Label>
+        <Form.Control type="text" placeholder="Enter Product"    />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicNumber">
+        <Form.Label>Quantity</Form.Label>
+        <Form.Control type="number" placeholder="Quantity"   />
+      </Form.Group>
+
+      <a href="/" className="btn btn-dark mr-2">Cancel</a>
+
+      <Button variant="btn btn-outline-danger" type="submit" onClick={OrderDone}>
+       Order Done
+      </Button>
+
+
+    </Form>
+      </div>
+     
+  </div>
+</div>
+        </div>
         </div>
     </div> 
           
