@@ -22,8 +22,6 @@ root.render(
   <Route path='aboutus' element={<AboutUs/>}/>
   <Route path='contactus' element={<ContactUs/>}/>
   <Route path='/search/:searchTerm' element={ <SearchProducts/>} />
-
-
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

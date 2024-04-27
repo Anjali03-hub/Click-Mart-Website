@@ -1,4 +1,4 @@
-
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Form from 'react-bootstrap/Form';
@@ -12,6 +12,10 @@ const Products = () => {
   const itemsPerPage = 10;
   const totalItems = 30; 
   const navigate=useNavigate();
+
+  
+  const [email,setEmail]=useState("");
+  const[users,Setusers]=useState([]);
 
 
   useEffect(() => {
@@ -46,10 +50,48 @@ const Products = () => {
     setCurrentPage(pageNumber);
   }
 
+  
+  function h()
+  {
+    axios.get("http://localhost:10000/viewuser")
+    .then((result)=>Setusers(result.data))
+    
+
+    .catch((err)=>{console.log(err)})
+    console.log(users);
+  }
+
+  useEffect(()=>
+  {
+    h();
+  },[]);
 
   const OrderDone=()=>{
-    alert("Your order is placed successfully!")
+    // alert("Your order is placed successfully!")
+    // navigate('/')
+    console.log(users);
+    let found=false;
+  for(let i=0;i<users.length ;i++){
+    if(email==users[i]['email1']){
+      found=true;
+      break;
+    }
+  }
+  if(found)
+  {
+    alert("Your Order IS Placed Successfully");
     navigate('/')
+
+  }
+  
+  else
+  {
+    alert("Please Register First");
+  }
+
+
+
+
   }
 
 
@@ -95,6 +137,12 @@ const Products = () => {
       </div>
       <div class="modal-body">
       <Form>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail" >
+        <Form.Label>Enter Register Email</Form.Label>
+        <Form.Control type="text" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}   />
+      </Form.Group>
+
       <Form.Group className="mb-3" controlId="formBasicAddress" >
         <Form.Label>Enter Address</Form.Label>
         <Form.Control type="text" placeholder="Enter Address"   />
